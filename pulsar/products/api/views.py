@@ -2,6 +2,7 @@ from products.models import Product
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import ProductGetSerializer, ProductPostSerializer
 
@@ -9,7 +10,7 @@ from .serializers import ProductGetSerializer, ProductPostSerializer
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     parser_classes = (MultiPartParser, )
-    filter_backends = (filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (filters.SearchFilter, DjangoFilterBackend,)
     search_fields = ('name', 'code')
     filterset_fields = ('status', )
 
