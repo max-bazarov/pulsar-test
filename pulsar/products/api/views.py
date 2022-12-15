@@ -1,8 +1,7 @@
-from products.models import Product
-from rest_framework import viewsets
-from rest_framework.parsers import MultiPartParser
-from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
+from products.models import Product
+from rest_framework import filters, viewsets
+from rest_framework.parsers import MultiPartParser
 
 from .serializers import ProductGetSerializer, ProductPostSerializer
 
